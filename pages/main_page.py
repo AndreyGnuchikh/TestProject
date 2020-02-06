@@ -34,9 +34,8 @@ class MainPage(BasePage):
         alert.send_keys(answer)
         alert.accept()
         try:
-            alert = self.browser.switch_to.alert
-            alert_text = alert.text
-            print(f"Your code: {alert_text}")
-            alert.accept()
+            alert = self.browser.find_element_by_css_selector("#messages > div:nth-child(1) > div")
+            print(f"Your code: {alert.text}")
+            assert alert.text == "Coders at Work has been added to your basket."
         except NoAlertPresentException:
             print("No second alert presented")
