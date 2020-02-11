@@ -1,5 +1,7 @@
 import pytest
+from self import self
 
+from .pages import product_page
 from .pages.main_page import MainPage
 
 
@@ -18,5 +20,5 @@ from .pages.main_page import MainPage
 def test_guest_can_add_product_to_basket(browser, link):
     page = MainPage(browser, link)  # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url адрес
     page.open()  # открываем страницу
-    page.click_add_product_to_basket()
-    page.solve_quiz_and_get_code()
+    product_page.click_add_product_to_basket(page)
+    product_page.solve_quiz_and_get_code(page)
