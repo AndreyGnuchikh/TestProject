@@ -1,7 +1,7 @@
 import math
 
 from selenium.common.exceptions import NoAlertPresentException
-from pages.locators import GoodsPageLocators
+from pages.locators import GoodsPageLocators, ProductPageLocators
 
 
 def click_add_product_to_basket(self):
@@ -23,3 +23,13 @@ def solve_quiz_and_get_code(self):
         alert.accept()
     except NoAlertPresentException:
         print("No second alert presented")
+
+
+def should_not_be_success_message(self):
+    assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+        "Success message is presented, but should not be"
+
+
+def should_be_disappeared(self):
+    assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+        "Message is not disappeared, but should been disappeared"

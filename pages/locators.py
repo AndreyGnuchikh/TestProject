@@ -12,3 +12,7 @@ class LoginPageLocators:
 
 class GoodsPageLocators:
     ADD_GOODS_IN_BASKET = (By.CSS_SELECTOR, "#add_to_basket_form > button")
+
+
+class ProductPageLocators:
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages > div:nth-child(1) > div")

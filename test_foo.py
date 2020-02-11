@@ -1,7 +1,6 @@
 import pytest
-from self import self
 
-from pages.locators import GoodsPageLocators
+from .pages.locators import ProductPageLocators
 from .pages import product_page
 from .pages.main_page import MainPage
 
@@ -25,6 +24,6 @@ def test_guest_can_add_product_to_basket(browser, link):
     page.open()  # открываем страницу
     product_page.click_add_product_to_basket(page)
     product_page.solve_quiz_and_get_code(page)
-    alert = page.browser.find_element_by_css_selector("#messages > div:nth-child(1) > div")
+    alert = page.browser.find_element(*ProductPageLocators.SUCCESS_MESSAGE)
     print(f"Your code: {alert.text}")
     assert alert.text == "Coders at Work has been added to your basket."
