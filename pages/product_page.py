@@ -1,7 +1,7 @@
 import math
 
 from selenium.common.exceptions import NoAlertPresentException
-from pages.locators import GoodsPageLocators, ProductPageLocators
+from .locators import GoodsPageLocators, ProductPageLocators
 
 
 def click_add_product_to_basket(self):
