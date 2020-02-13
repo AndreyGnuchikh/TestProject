@@ -1,3 +1,4 @@
+from pages.basket_page import BasketPage
 from .pages.login_page import LoginPage
 from .pages.main_page import MainPage
 
@@ -37,3 +38,12 @@ def test_guest_should_be_register_form(browser):
     page = LoginPage(browser, link)
     page.open()
     page.should_be_register_form()
+
+
+def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
+    link = "http://selenium1py.pythonanywhere.com/"
+    page = BasketPage(browser, link)
+    page.open()
+    page.go_to_basket_page()
+    page.should_be_empty_basket_page()
+    page.should_be_basket_text()
